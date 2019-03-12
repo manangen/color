@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
+	// dump('萝卜');
     return view('welcome');
 });
+//定义后台首页的路由
+Route::get('admin','Admin\IndexController@index');
+
+Route::resource('admin/users','Admin\UsersController');
