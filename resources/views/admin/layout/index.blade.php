@@ -32,7 +32,10 @@
 <link rel="stylesheet" type="text/css" href="/admin_public/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admin_public/css/themer.css" media="screen">
 
+
 <title>解忧百货</title>
+<link rel="stylesheet" type="text/css" href="/admin_public/css/page_page.css">
+<title>MWS Admin - Form Layouts</title>
 
 </head>
 
