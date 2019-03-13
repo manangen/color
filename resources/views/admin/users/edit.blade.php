@@ -19,44 +19,34 @@
         <span>用户添加</span>
     </div>
     <div class="mws-panel-body no-padding">
-        <form class="mws-form" action="/admin/users" method="post">
+        <form class="mws-form" action="/admin/users/{{$user->id}}" method="post">
             {{ csrf_field() }}
+            {{ method_field('PUT')}}
             <div class="mws-form-inline">
                 <div class="mws-form-row">
                     <label class="mws-form-label">用户名</label>
                     <div class="mws-form-item">
-                        <input type="text" name="uname" value="{{ old('uname') }}" class="small">
+                        <input type="text" name="uname"  readonly value="{{ $user->uname }}" class="small">
                     </div>
                 </div>
-                <div class="mws-form-row">
-                    <label class="mws-form-label">密码</label>
-                    <div class="mws-form-item">
-                        <input type="password" name="upass" value="" class="small">
-                    </div>
-                </div>
-                <div class="mws-form-row">
-                    <label class="mws-form-label">确认密码</label>
-                    <div class="mws-form-item">
-                        <input type="password" name="repass" value="" class="small">
-                    </div>
                 </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">邮箱</label>
                     <div class="mws-form-item">
-                        <input type="text" name="email" value="{{ old('email') }}" class="small">
+                        <input type="text" name="email" value="{{ $user->email }}" class="small">
                     </div>
                 </div>
 
                 <div class="mws-form-row">
                     <label class="mws-form-label">手机号</label>
                     <div class="mws-form-item">
-                        <input type="text" name="phone" value="{{ old('phone') }}" class="small">
+                        <input type="text" name="phone" value="{{ $user->phone }}" class="small">
                     </div>
                 </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">个性签名</label>
                     <div class="mws-form-item">
-                        <textarea name="description" class="small">{{ old('description') }}</textarea>
+                        <textarea name="description" class="small">{{ $user->userinfo->description}}</textarea>
                     </div>
                 </div>  
             </div>
@@ -67,5 +57,6 @@
         </form>
     </div>      
 </div>
+
 
 @endsection

@@ -16,10 +16,14 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $count = $request->input('count','5');
+        $search = $request->input('search','');
+        $users = Users::where('uname','like','%'.$search.'%')->paginate($count);
+        // dump($users);
         // 加载列表页面
-        return view('admin.users.index');
+        return view('admin.users.index',['users'=>$users,'request'=>$request->all()]);
         
     }
 
@@ -94,7 +98,10 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user =  Users::find($id);
+        //显示数据
+        return view('admin/users/edit',['user'=>$user]);
+        
     }
 
     /**
@@ -106,7 +113,28 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dump($request->abs(number)ll());
+        /*
+            开启事务   DB::beginTransaction();
+            提交事务   DB::commit()
+            回滚事务   DB::rollBack()
+         */
+         DB::beginTransaction();
+        //直接连接数据库
+        $user = Users::find($id);
+        $user->email = $request->input('email','');
+        $user->phone = $request->input('phone','');
+        $res1 = $user->save();
+        $userinfo = usersinfos::where('uid',$id)->first();
+        $userinfo->description = $request->input('description','');
+        $res2 = $userinfo->save();
+        if($res1 && $res2){
+            DB::commit();
+            return redirect('admin/users')->with('success','修改成功');
+        }else{
+             DB::rollBack();
+            return back()->with('error','修改失败');
+        }
     }
 
     /**
@@ -117,6 +145,15 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::beginTransaction();
+        $res1 = Users::destroy($id);
+        $res2 = Usersinfos::where('uid',$id)->delete();
+        if($res1 && $res2){
+            DB::commit();
+            return redirect('admin/users')->with('success','删除成功');
+        }else{
+             DB::rollBack();
+            return back()->with('error','删除失败');
+        }
     }
 }
