@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -33,7 +32,7 @@
 <link rel="stylesheet" type="text/css" href="/admin_public/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admin_public/css/themer.css" media="screen">
 
-<title>MWS Admin - Form Layouts</title>
+<title>解忧百货</title>
 
 </head>
 
@@ -119,8 +118,8 @@
                      <li class="active">
                         <a href="#"><i class="icon-link"></i>友情链接</a>
                         <ul>
-                            <li><a href="form_elements.html">链接列表</a></li>
-                            <li><a href="form_layouts.html">添加链接</a></li>
+                            <li><a href="/admin/users">链接列表</a></li>
+                            <li><a href="/admin/link/create">添加链接</a></li>
                         </ul>
                     </li>
 

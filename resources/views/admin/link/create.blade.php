@@ -16,45 +16,32 @@
 
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
-    	<span>用户添加</span>
+    	<span>添加链接</span>
     </div>
     <div class="mws-panel-body no-padding">
     	<form class="mws-form" action="/admin/users" method="post">
     		{{ csrf_field() }}
     		<div class="mws-form-inline">
     			<div class="mws-form-row">
-    				<label class="mws-form-label">用户名</label>
+    				<label class="mws-form-label">链接名称</label>
     				<div class="mws-form-item">
     					<input type="text" name="uname" value="{{ old('uname') }}" class="small">
     				</div>
     			</div>
     			<div class="mws-form-row">
-    				<label class="mws-form-label">密码</label>
+    				<label class="mws-form-label">链接网址</label>
     				<div class="mws-form-item">
-    					<input type="password" name="upass" value="" class="small">
+    					<input type="text" name="url" value="{{ old('url') }}" class="small">
     				</div>
     			</div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">链接logo</label>
+                    <div class="mws-form-item" style="width:47%">
+                        <input type="file" name="pic" value="" class="small">
+                    </div>
+                </div>
     			<div class="mws-form-row">
-    				<label class="mws-form-label">确认密码</label>
-    				<div class="mws-form-item">
-    					<input type="password" name="repass" value="" class="small">
-    				</div>
-    			</div>
-    			<div class="mws-form-row">
-    				<label class="mws-form-label">邮箱</label>
-    				<div class="mws-form-item">
-    					<input type="text" name="email" value="{{ old('email') }}" class="small">
-    				</div>
-    			</div>
-
-    			<div class="mws-form-row">
-    				<label class="mws-form-label">手机号</label>
-    				<div class="mws-form-item">
-    					<input type="text" name="phone" value="{{ old('phone') }}" class="small">
-    				</div>
-    			</div>
-    			<div class="mws-form-row">
-    				<label class="mws-form-label">个性签名</label>
+    				<label class="mws-form-label">链接说明</label>
     				<div class="mws-form-item">
     					<textarea name="description" class="small">{{ old('description') }}</textarea>
     				</div>
