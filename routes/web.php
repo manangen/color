@@ -23,6 +23,8 @@ Route::get('admin','Admin\IndexController@index');
 //定义后台用户的路由
 Route::resource('admin/users','Admin\UsersController');
 
+
+
 //定义后台轮播图的路由
 Route::resource('admin/slid','Admin\SlidController');
 
