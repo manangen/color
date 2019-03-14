@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('admin','Admin\IndexController@index');
 
 Route::resource('admin/users','Admin\UsersController');
+//分类路由
+Route::resource('admin/cates','Admin\CatesController');
+
+

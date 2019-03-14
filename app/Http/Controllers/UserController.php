@@ -6,5 +6,5 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    echo '...';
+    echo '测试修改文件';
 }
