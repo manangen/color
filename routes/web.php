@@ -15,11 +15,24 @@ Route::get('/', function () {
 	// dump('萝卜');
     return view('welcome');
 });
+
+
 //定义后台首页的路由
 Route::get('admin','Admin\IndexController@index');
 
+//定义后台用户的路由
 Route::resource('admin/users','Admin\UsersController');
-//分类路由
-Route::resource('admin/cates','Admin\CatesController');
+<<<<<<< HEAD
+
+=======
+
+//定义后台轮播图的路由
+Route::resource('admin/slid','Admin\SlidController');
+
+
+//定义前台的路由
+Route::resource('home','Home\IndexController@index');
+
+>>>>>>> 20bdebc11da01ea50ac36a23df96dd1935a691e9
 
 
