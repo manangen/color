@@ -133,7 +133,7 @@
                     </li>
 
                     <li class="active">
-                        <a href="#"><i class="icon-bag"></i>分类管理</a>
+                        <a href="#"><i class="icon-align-left"></i>分类管理</a>
                         <ul>
                             <li><a href="/admin/cates">分类列表</a></li>
                             <li><a href="/admin/cates/create">分类添加</a></li>
