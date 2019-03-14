@@ -18,8 +18,9 @@ Route::get('/', function () {
 // 定义后台首页的路由
 Route::get('admin','Admin\IndexController@index');
 
-// 定义用户路由
+// 定义后台用户路由
 Route::resource('admin/users','Admin\UsersController');
 
-// 定义链接路由
+// 定义后台链接路由
 Route::resource('admin/link','Admin\LinkController');
+

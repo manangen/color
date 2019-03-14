@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use \Http\Requests\LinkStoreRequest;
+use App\Http\Requests\LinksStoreRequest;
 use App\Models\Link;
 use DB;
 
@@ -15,8 +15,10 @@ class LinkController extends Controller
      */
     public function index()
     {
+        $link = Link::all();
+        // dump($link);
         // 加载页面模板
-        return view('admin.link.index');
+        return view('admin.link.index',['link'=>$link]);
     }
 
     /**
@@ -36,23 +38,18 @@ class LinkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LinkStoreRequest $request)
+    public function store(LinksStoreRequest $request)
     {
-        dump($request);
-        // 开启事务
         DB::beginTransaction();
-        // 把数据 压入到 数据库
-        $link = new link;
+        // dump($request->all());
+        $link = new Link;
         $link->lname = $request->input('lname','');
         $link->lurl = $request->input('lurl','');
-        $link->lpic = $request->input('lpic','');
         $link->description = $request->input('description','');
-        if($res1 && $res2){
-            DB::commit();
-            return redirect('admin/link')->with('success','添加成功');
+        if($link->save()){
+            return redirect('admin/link/create')->with('success','添加成功');
         }else{
-            DB::rollBack();
-            return redirect('admin/link')->with('error','添加失败');
+            return back('admin/link/create')->with('error','添加失败');
         }
     }
 
@@ -75,7 +72,10 @@ class LinkController extends Controller
      */
     public function edit($id)
     {
-        //
+        $link = Link::find($id);
+        // dump($link);
+        // 显示数据
+        return view('admin.link.edit',['link'=>$link]);
     }
 
     /**
@@ -87,7 +87,23 @@ class LinkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // 修改
+        // dump($request->all());
+        // 开始事务
+        DB::beginTransaction();
+
+        // 直接数据库
+        $link = Link::find($id);
+        $link->lname = $request->input('lname','');
+        $link->description = $request->input('description',''); 
+        $res = $link->save();  
+        if($res){
+        	DB::commit();
+            return redirect('admin/link')->with('success','修改成功');
+        }else{
+        	DB::rollBack();
+            return back()->with('error','修改失败');
+        }   
     }
 
     /**
@@ -98,6 +114,15 @@ class LinkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // 删除
+    	DB::beginTransaction();
+    	$res = Link::destroy($id);
+    	if($res){
+        	DB::commit();
+            return redirect('admin/link')->with('success','删除成功');
+        }else{
+        	DB::rollBack();
+            return back()->with('error','删除失败');
+        }   
     }
 }

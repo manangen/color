@@ -47,7 +47,6 @@
                     </div>
                 </div>
 
-<<<<<<< HEAD
     			<div class="mws-form-row">
     				<label class="mws-form-label">手机号</label>
     				<div class="mws-form-item">
@@ -67,27 +66,8 @@
     		</div>
     	</form>
     </div>    	
-=======
-                <div class="mws-form-row">
-                    <label class="mws-form-label">手机号</label>
-                    <div class="mws-form-item">
-                        <input type="text" name="phone" value="{{ old('phone') }}" class="small">
-                    </div>
-                </div>
-                <div class="mws-form-row">
-                    <label class="mws-form-label">个性签名</label>
-                    <div class="mws-form-item">
-                        <textarea name="description" class="small">{{ old('description') }}</textarea>
-                    </div>
-                </div>  
-            </div>
-            <div class="mws-button-row">
-                <input type="submit" value="Submit" class="btn btn-success">
-                <input type="reset" value="Reset" class="btn">
-            </div>
         </form>
     </div>      
->>>>>>> bb7f0953b979927260e84dc32eecab77d1b2cf96
 </div>
 
 @endsection

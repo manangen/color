@@ -15,28 +15,29 @@
 
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
-    	<span>添加链接</span>
+    	<span>修改链接</span>
     </div>
     <div class="mws-panel-body no-padding">
-    	<form class="mws-form" action="/admin/link" method="post">
+    	<form class="mws-form" action="/admin/link/{{ $link->id }}" method="post">
     		{{ csrf_field() }}
+            {{ method_field('PUT') }}
     		<div class="mws-form-inline">
     			<div class="mws-form-row">
     				<label class="mws-form-label">链接名称</label>
     				<div class="mws-form-item">
-    					<input type="text" name="lname"  class="small">
+    					<input type="text" name="lname" value="{{ $link->lname }}" class="small">
     				</div>
     			</div>
     			<div class="mws-form-row">
     				<label class="mws-form-label">链接网址</label>
     				<div class="mws-form-item">
-    					<input type="text" name="lurl"  class="small">
+    					<input type="text" name="lurl" readonly value="{{ $link->lurl }}"  class="small">
     				</div>
     			</div>
     			<div class="mws-form-row">
     				<label class="mws-form-label">链接说明</label>
     				<div class="mws-form-item">
-    					<textarea name="description" class="small"></textarea>
+    					<textarea name="description" class="small">{{ $link->description }}</textarea>
     				</div>
     			</div>	
     		</div>

@@ -121,16 +121,8 @@
                      <li class="active">
                         <a href="#"><i class="icon-link"></i>友情链接</a>
                         <ul>
-                            <li><a href="/admin/users">链接列表</a></li>
+                            <li><a href="/admin/link">链接列表</a></li>
                             <li><a href="/admin/link/create">添加链接</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="active">
-                        <a href="#"><i class="icon-bag"></i>商品管理</a>
-                        <ul>
-                            <li><a href="/admin/users">商品列表</a></li>
-                            <li><a href="/admin/users/create">商品添加</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -167,7 +159,7 @@
                        
             <!-- Footer -->
             <div id="mws-footer">
-            	Copyright Your Website 2012. All Rights Reserved.
+            	© 2019 网易公司 京ICP证080268号
             </div>
             
         </div>
