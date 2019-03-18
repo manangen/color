@@ -23,6 +23,7 @@ Route::get('admin','Admin\IndexController@index');
 //定义后台用户的路由
 Route::resource('admin/users','Admin\UsersController');
 
+
 //分类路由
 Route::resource('admin/cates','Admin\CatesController');
 
@@ -35,4 +36,12 @@ Route::resource('home','Home\IndexController');
 Route::resource('admin/notice','Admin\NoticeController');
 
 
+//定义前台的路由
+Route::resource('home','Home\IndexController');
 
+
+//分类路由
+Route::resource('admin/cates','Admin\CatesController');
+
+//轮播图路由
+Route::resource('admin/slid','Admin\Slidcontroller');
