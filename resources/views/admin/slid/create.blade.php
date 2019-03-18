@@ -1,64 +1,53 @@
 @extends('admin.layout.index')
 
-@section('title','网站信息')
-
 @section('content')
-	<button class="btn btn-warning" onclick="history.go(-1)" style="border-radius:20px">返回</button>
 
-	
-	<div class="result_title">
-            @if (count($errors) > 0)
-                <div class="mark" style="background:#ED5F6F;border-radius:10px">
-                    <ul>
-                        @if(is_object($errors))
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        @else
-                            <li>{{ session('msg') }}</li>
-                        @endif
-                    </ul>
+<!-- 显示错误 信息 开始 -->
+@if (count($errors) > 0)
+    <div class="mws-form-message error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<!-- 显示错误 信息 结束 -->
+
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span>轮播图添加</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+        <form class="mws-form" action="/admin/slid" method="post">
+            {{ csrf_field() }}
+            <div class="mws-form-inline">
+                <div class="mws-form-row">
+                    <label class="mws-form-label">轮播图名称</label>
+                    <div class="mws-form-item">
+                        <input type="text" name="sname" value="{{ old('sname') }}" class="small">
+                    </div>
                 </div>
-            @endif
-        </div>
-
-	<div class="container">
-		<div class="col-md-offset-1">
-		 	<div class="col-md-10">
-				<form action="{{url('/admin/slid')}}" method="post" enctype="multipart/form-data">
-	                {{csrf_field()}}
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">名称: </label>
-				    <input type="text" class="form-control" name="stitle" id="exampleInputEmail1" style="height=45px" value="">
-				  </div>
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">目标地址: </label>
-				    <input type="text" class="form-control" name="surl" id="exampleInputEmail1" style="height=45px" value="">
-				  </div>
-				  <div class="form-group" style="margin-top:30px">
-				    <label for="exampleInputFile">图片 :</label>
-				    <input type="file" name="simg" value="" />
-				  </div>
-				  <div class="form-group row" style="margin-left:-27px;margin-top:20px">
-		                <label class="col-sm-1 form-control-label text-xs-right">
-		                    状态:
-		                </label>
-	                    <label>
-	                        <input class="radio" name="status" type="radio" checked value="1">
-	                        <span>显示</span>
-	                    </label>
-	                    <label>
-	                        <input class="radio" name="status" type="radio" value="2">
-	                        <span>不显示</span>
-	                    </label>
-		            </div>{{csrf_field()}}
-				  
-				  		
-				<input class="btn btn-primary" type="submit" value="确认添加" style="border-radius:20px">
-				</form>
-			</div>
-		</div>
-	</div>
-	
+                <div class="mws-form-row">
+                    <label class="mws-form-label">轮播图路径</label>
+                    <div class="mws-form-item">
+                        <input type="text" name="surl" value="{{ old('surl') }}" class="small">
+                    </div>
+                </div>
+                
+                <div class="mws-form-row">
+                    <label class="mws-form-label">轮播图描述</label>
+                    <div class="mws-form-item">
+                        <textarea name="description" class="small">{{ old('description') }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="mws-button-row">
+                <input type="submit" value="提交" class="btn btn-success">
+                <!-- <input type="reset" value="重置" class="btn"> -->
+            </div>
+        </form>
+    </div>      
+</div>
 
 @endsection
