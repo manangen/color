@@ -118,11 +118,30 @@
                         </ul>
                     </li>
 
-                     <li class="active">
-                        <a href="#"><i class="icon-link"></i>友情链接</a>
+                    
+                    <li class="active">
+                        <a href="#"><i class="icon-bag"></i>商品管理</a>
                         <ul>
+
                             <li><a href="/admin/link">链接列表</a></li>
                             <li><a href="/admin/link/create">添加链接</a></li>
+
+                            <li><a href="">商品列表</a></li>
+                            <li><a href="">商品添加</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="icon-align-left"></i>分类管理</a>
+                        <ul>
+                            <li><a href="/admin/cates">分类列表</a></li>
+                            <li><a href="/admin/cates/create">分类添加</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="icon-retweet"></i>轮播图管理</a>
+                        <ul>
+                            <li><a href="/admin/slid">轮播图列表</a></li>
+                            <li><a href="/admin/slid/create">轮播图添加</a></li>
                         </ul>
                     </li>
                 </ul>
