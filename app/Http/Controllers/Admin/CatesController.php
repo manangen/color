@@ -60,7 +60,7 @@ class CatesController extends Controller
     public function store(Request $request)
     {  
          
-
+           //设置限制表单为空不能提交
            $this->validate($request, [
             'cname' => 'required',
         ],
