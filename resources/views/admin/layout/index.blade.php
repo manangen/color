@@ -62,22 +62,17 @@
             <!-- User Information and functions section -->
             <div id="mws-user-info" class="mws-inset">
             
-            	<!-- User Photo -->
-            	<div id="mws-user-photo">
-                	<img src="/admin_public/example/profile.jpg" alt="User Photo">
-                </div>
+            
                 
                 <!-- Username and Functions -->
-                <div id="mws-user-functions">
                     <div id="mws-username">
-                        Hello, 管理员
+                        Hello, 管理员                       
                     </div>
                     <ul>
-                    	<li><a href="#">头像上传</a></li>
-                        <li><a href="#">修改密码</a></li>
-                        <li><a href="index.html">退出</a></li>
+                        <li><a href="/admin/login_out">退出</a></li>
                     </ul>
-                </div>
+                
+                    
             </div>
         </div>
     </div>
@@ -99,17 +94,14 @@
                 <span></span>
             </div>
             
-        	<!-- Searchbox -->
-        	<div id="mws-searchbox" class="mws-inset">
-            	<form action="typography.html">
-                	<input type="text" class="mws-search-input" placeholder="Search...">
-                    <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
-                </form>
-            </div>
             
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
+                	<li class="active">
+                		<a href="/admin/"><i class="icon-home"></i> 主页 </a>
+                	</li>
+
                     <li class="active">
                         <a href="#"><i class="icon-users"></i> 用户管理</a>
                         <ul>
@@ -117,19 +109,16 @@
                             <li><a href="/admin/users/create">用户添加</a></li>
                         </ul>
                     </li>
-
                     
                     <li class="active">
-                        <a href="#"><i class="icon-bag"></i>商品管理</a>
+                        <a href="#"><i class="icon-bag"></i>链接管理</a>
                         <ul>
 
                             <li><a href="/admin/link">链接列表</a></li>
                             <li><a href="/admin/link/create">添加链接</a></li>
-
-                            <li><a href="">商品列表</a></li>
-                            <li><a href="">商品添加</a></li>
                         </ul>
                     </li>
+
                     <li class="active">
                         <a href="#"><i class="icon-align-left"></i>分类管理</a>
                         <ul>
@@ -137,6 +126,7 @@
                             <li><a href="/admin/cates/create">分类添加</a></li>
                         </ul>
                     </li>
+
                     <li class="active">
                         <a href="#"><i class="icon-retweet"></i>轮播图管理</a>
                         <ul>

@@ -17,7 +17,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                	@foreach($link as $k => $v)
+                	@foreach($link as $k => $v)              	
                     <tr>
                         <td>{{ $v->id }}</td>
                         <td>{{ $v->lname }}</td>
