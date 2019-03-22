@@ -11,18 +11,16 @@
 |
 */
 
-Route::get('/admin/login_out', function () {
-    // return view('welcome');
-    session()->forget('users');
-    return view('admin/login');
-
+Route::get('/', function () {
+	return view('welcome');
 });
 	
 	
 // 定义后台登陆路由 
 Route::get('admin_login','Admin\LoginController@admin_login');
 Route::post('dologin','Admin\LoginController@dologin');
-
+// 定义后台退出登陆
+Route::get('admin/login_out','Admin\LoginController@login_out');
 Route::group(['middleware'=> ['admin_login']],function(){
 	// 定义后台首页的路由
 	Route::get('admin/index','Admin\IndexController@index');

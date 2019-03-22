@@ -28,6 +28,17 @@
     <div id="mws-login-wrapper">
         <div id="mws-login">
             <h1>登录</h1>
+            <!-- 显示错误 信息 开始 -->
+                @if (count($errors) > 0)
+                    <div class="mws-form-message error">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            <!-- 显示错误 信息 结束 -->
             <div class="mws-login-lock"><i class="icon-lock"></i></div>
             <div id="mws-login-form">
                 <form class="mws-form" action="/dologin" method="post">

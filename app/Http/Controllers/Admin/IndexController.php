@@ -14,7 +14,6 @@ class IndexController extends Controller
      */
     public function index(Request $request)
     {
-        
         // 加载模板
         return view('admin.index.index');
         

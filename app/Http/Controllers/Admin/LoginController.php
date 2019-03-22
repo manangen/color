@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Http\Requests\AdminloginStoreRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Users;
 use Hash;
 class LoginController extends Controller
@@ -84,48 +84,37 @@ class LoginController extends Controller
     {
         //
     }
-
+    // 登陆页面
     public function admin_login()
     {
         //
         return view('admin.login');
     }
-
-    public function dologin(Request $request)
+    // 登陆验证
+    public function dologin(AdminloginStoreRequest $request)
     {
-        // dump($request->all());
-        // 接收登陆信息
-        $name = $request->uname;
-        $password = $request->upass;
-        $list = Users::where('uname','like',$name)->get();
-        if(count($list)) {
-            foreach($list as $key => $value){
-                $id = ($value->id);
-                $pass = ($value->upass);
-                $status = ($value->status);
-            }
-            $arr = [
-                'id'=>$id,
-                'uname'=>$name,
-                'status'=>$status,
-            ];
-            // 判断密码
-            if (Hash::check($password,$pass)) {
-                if($arr['status'] == 1)  {
-                    // 密码错误
-                    return '<script>alert("当前用户已禁用");location.href="/admin/login"</script>';
-                }
-                // 密码正确
-                session(['users' => $arr]);
-                // 用户名和密码正确
-                return redirect('/admin/index');
-            }else{
-                // 密码不正确
-                return '<script>alert("密码错误");location.href="/admin_login/"</script>';
-            }
+    	$name = $request->input('uname','');
+    	$pass = $request->input('upass','');
+    	$user = Users::where('uname',$name)->first();
+    	if(!$user){
+    		return back()->with('error','用户名不存在');
+    	}
+    	$password = $user->upass;
+    	if(!Hash::check($pass,$password)){
+    		$request->flash();
+    		return back()->with('error','密码错误');
+    	}
+    	session(['users' => $user->users,'upass' => $user->upass]);
+    	return redirect('/admin/index');
+	}
+	// 退出登陆
+	public function login_out(Request $request)
+    {
+        //
+        if(!$request->session()->forget('users')) {
+        	return redirect('/admin_login');
         }else{
-            // 用户不存在
-            return '<script>alert("当前用户不存在");location.href="/admin_login/"<script>';
+
         }
     }
 }
