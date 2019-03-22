@@ -45,3 +45,6 @@ Route::resource('admin/cates','Admin\CatesController');
 
 //轮播图路由
 Route::resource('admin/slid','Admin\Slidcontroller');
+
+//商品管理路由
+Route::resource('admin/goods','Admin\GoodsController');

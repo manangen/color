@@ -120,10 +120,11 @@
                     <li class="active">
                         <a href="#"><i class="icon-bag"></i>商品管理</a>
                         <ul>
-                            <li><a href="">商品列表</a></li>
-                            <li><a href="">商品添加</a></li>
+                            <li><a href="/admin/goods">商品列表</a></li>
+                            <li><a href="/admin/goods/create">商品添加</a></li>
                         </ul>
                     </li>
+                    
                     <li class="active">
                         <a href="#"><i class="icon-align-left"></i>分类管理</a>
                         <ul>

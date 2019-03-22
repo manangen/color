@@ -49,7 +49,7 @@ td
                     <form action="/admin/notice/{{ $v->id }}" method="post" style="display:inline-block;">
                   	   {{ csrf_field() }}
                   	   {{ method_field('DELETE')}}
-                    	<input type="submit" value="删除" class="btn btn-danger">
+                    	<input type="submit" value="删除" class="btn btn-danger" onclick="return confirm('数据无价小心操作')">
 					</form>
 					<a href="/admin/notice/{{$v->id}}/edit" class="btn btn-warning">修改</a>
                     </td>

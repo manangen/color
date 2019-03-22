@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;   //引入模型
+
 use DB;  //SQL语句需要添加这个
 class CatesController extends Controller
 {
@@ -147,7 +148,7 @@ class CatesController extends Controller
            if(Cates::destroy($id)){
                return redirect('admin/cates')->with('success','删除成功');
            }else{
-            return back()->with('error','删除失败');
+                return back()->with('error','删除失败');
            }
     }
 }
