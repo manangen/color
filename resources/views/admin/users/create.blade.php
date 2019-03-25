@@ -47,25 +47,26 @@
                     </div>
                 </div>
 
-    			<div class="mws-form-row">
-    				<label class="mws-form-label">手机号</label>
-    				<div class="mws-form-item">
-    					<input type="text" name="phone" value="{{ old('phone') }}" class="small">
-    				</div>
-    			</div>
-    			<div class="mws-form-row">
-    				<label class="mws-form-label">个性签名</label>
-    				<div class="mws-form-item">
-    					<textarea name="description" class="small">{{ old('description') }}</textarea>
-    				</div>
-    			</div>	
-    		</div>
-    		<div class="mws-button-row">
-    			<input type="submit" value="提交" class="btn btn-success">
-    			<input type="reset" value="重置" class="btn">
-    		</div>
-    	</form>
-    </div>    	 
+
+                <div class="mws-form-row">
+                    <label class="mws-form-label">手机号</label>
+                    <div class="mws-form-item">
+                        <input type="text" name="phone" value="{{ old('phone') }}" class="small">
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">个性签名</label>
+                    <div class="mws-form-item">
+                        <textarea name="description" class="small">{{ old('description') }}</textarea>
+                    </div>
+                </div>  
+            </div>
+            <div class="mws-button-row">
+                <input type="submit" value="提交" class="btn btn-success">
+                <!-- <input type="reset" value="重置" class="btn"> -->
+            </div>
+        </form>
+    </div>      
 </div>
 
 @endsection

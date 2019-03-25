@@ -27,6 +27,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+
         //加载模板
         return view('home/index/index',['cates_data'=> self::getPidCates()] );
            

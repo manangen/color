@@ -8,7 +8,7 @@
 
 <!-- Viewport Metatag -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Plugin Stylesheets first to ease overrides -->
 <link rel="stylesheet" type="text/css" href="/admin_public/plugins/colorpicker/colorpicker.css" media="screen">
 
@@ -31,7 +31,6 @@
 <!-- Theme Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/admin_public/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admin_public/css/themer.css" media="screen">
-
 
 <title>解忧百货</title>
 <link rel="stylesheet" type="text/css" href="/admin_public/css/page_page.css">
@@ -115,11 +114,11 @@
                         <a href="#"><i class="icon-bag"></i>链接管理</a>
                         <ul>
 
-                            <li><a href="/admin/link">链接列表</a></li>
-                            <li><a href="/admin/link/create">添加链接</a></li>
+                            <li><a href="/admin/goods">商品列表</a></li>
+                            <li><a href="/admin/goods/create">商品添加</a></li>
                         </ul>
                     </li>
-
+                    
                     <li class="active">
                         <a href="#"><i class="icon-align-left"></i>分类管理</a>
                         <ul>
@@ -128,13 +127,33 @@
                         </ul>
                     </li>
 
+                       
+                     <li class="active">
+                        <a href="#"><i class="icon-bullhorn"></i>公告管理</a>
+                        <ul>
+                            <li><a href="/admin/notice">公告列表</a></li>
+                            <li><a href="/admin/notice/create">公告添加</a></li>
+                        </ul>
+                    </li>
+
+
+
                     <li class="active">
                         <a href="#"><i class="icon-retweet"></i>轮播图管理</a>
                         <ul>
                             <li><a href="/admin/slid">轮播图列表</a></li>
                             <li><a href="/admin/slid/create">轮播图添加</a></li>
+          </ul>
+                    </li>
+                    <li class="active">
+                     <a href="#"><i class="icon-link"></i>链接管理</a>
+                     <ul>
+                        <li><a href="/admin/link">链接列表</a></li>
+                        <li><a href="/admin/link/create">添加链接</a></li>
+
                         </ul>
                     </li>
+
                 </ul>
             </div>
         </div>

@@ -1,6 +1,16 @@
 @extends('admin.layout.index')
 
 @section('content')
+{{-- 表单验证不能为空 --}}
+@if (count($errors) > 0)
+    <div class="mws-form-message error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="mws-panel grid_8">
                 <div class="mws-panel-header">
                  	 <span>分类添加</span>

@@ -1,16 +1,12 @@
 #page_page{
 	/*background:#fdfdfd;*/
-	/*padding:1rem;*/
-	/*margin:3rem auto;*/
 	border-radius:0.2rem;
 	counter-reset:pagination;
 	text-align:center;
-	margin:0px;
-
 }
 #page_page li{
 	border:solid 1px #d6d6d6;
-	/*border-radius:0.2rem;*/
+	border-radius:0.2rem;
 	color:#7d7d7d;
 	text-decoration:none;
 	text-transform:uppercase;

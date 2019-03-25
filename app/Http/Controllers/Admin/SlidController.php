@@ -55,11 +55,26 @@ class SlidController extends Controller
         
         $slid = new Slid;
         $slid->sname = $request->input('sname','');
-        $slid->surl = $request->input('surl','');
+        // $slid->surl = $request->input('surl','');
         $slid->description=$request->input('description','');
-        $res = $slid->save();
-     
+        $spic = $request->file('spic');
+        // 图片保存路径
+        $u = '/uploads'.'/';
+        //设置文件后缀名
+        $enev = strtolower($spic->getClientOriginalExtension());
 
+        //设置文件名称
+        $thore = date('Y-m-d,H:i:s').mt_rand(1000,9999); 
+
+        //拼接文件路径
+        $filename = '$enev.'.'.$thore';
+      
+        // 图片路径放入数据库
+       $filename= $request->file('spic')->store('/');
+       $slid->spic = $u.$filename;
+        // dd($slid->spic);
+       // 执行添加 
+        $res = $slid->save();
         if($res){
             DB::commit();
             return redirect('admin/slid')->with('success','添加成功');
