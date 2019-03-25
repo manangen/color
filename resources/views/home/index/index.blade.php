@@ -36,7 +36,7 @@
 	<!-- 搜索栏 -->
 	<div class="top-search">
 		<div class="inner">
-			<a class="logo" href="index.html"><img src="/home_public/images/icons/logo.jpg" alt="解忧百货" class="cover"></a>
+			<a class="logo" href="/home/"><img src="/home_public/images/icons/logo.jpg" alt="解忧百货" class="cover"></a>
 			<div class="search-box">
 				<form class="input-group">
 					<input placeholder="Ta们都在用解忧百货" type="text">
