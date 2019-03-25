@@ -15,6 +15,7 @@ Route::get('/', function () {
 	// dump('萝卜');
     return view('welcome');
 });
+<<<<<<< HEAD
 
 
 //定义后台首页的路由
@@ -31,3 +32,14 @@ Route::resource('admin/cates','Admin\CatesController');
 
 //轮播图路由
 Route::resource('admin/slid','Admin\Slidcontroller');
+=======
+// 定义后台首页的路由
+Route::get('admin','Admin\IndexController@index');
+
+// 定义后台用户路由
+Route::resource('admin/users','Admin\UsersController');
+
+// 定义后台链接路由
+Route::resource('admin/link','Admin\LinkController');
+
+>>>>>>> origin/laowan

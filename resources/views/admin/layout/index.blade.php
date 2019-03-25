@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -32,6 +31,9 @@
 <!-- Theme Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/admin_public/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admin_public/css/themer.css" media="screen">
+
+
+<title>解忧百货</title>
 <link rel="stylesheet" type="text/css" href="/admin_public/css/page_page.css">
 <title>MWS Admin - Form Layouts</title>
 
@@ -120,6 +122,7 @@
                     <li class="active">
                         <a href="#"><i class="icon-bag"></i>商品管理</a>
                         <ul>
+<<<<<<< HEAD
                             <li><a href="">商品列表</a></li>
                             <li><a href="">商品添加</a></li>
                         </ul>
@@ -136,6 +139,10 @@
                         <ul>
                             <li><a href="/admin/slid">轮播图列表</a></li>
                             <li><a href="/admin/slid/create">轮播图添加</a></li>
+=======
+                            <li><a href="/admin/link">链接列表</a></li>
+                            <li><a href="/admin/link/create">添加链接</a></li>
+>>>>>>> origin/laowan
                         </ul>
                     </li>
                 </ul>
@@ -172,7 +179,7 @@
                        
             <!-- Footer -->
             <div id="mws-footer">
-            	Copyright Your Website 2012. All Rights Reserved.
+            	© 2019 网易公司 京ICP证080268号
             </div>
             
         </div>
