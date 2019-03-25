@@ -9,6 +9,7 @@ use App\Models\Users;
 use App\Models\Usersinfos;
 use Hash;
 use DB;
+
 class UsersController extends Controller
 {
     /**

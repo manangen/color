@@ -30,10 +30,14 @@
                                             <div style="text-align:center;"> 
                                            <a href="/admin/cates/create?id={{ $v->id }}" class="btn btn-info">添加子分类</a>
                                           <form action="/admin/cates/{{ $v->id }}" method="post" style="display:inline-block;">
+
+                                    <td> 
+
                                           	   {{ csrf_field() }}
                                           	   {{ method_field('DELETE')}}
                                           	<input type="submit" value="删除" class="btn btn-warning">
-                                          </form>
+                                           </form>
+                                        </div>
                                     	
                                     	<!-- <a href="" class="btn btn-success">编辑<a> -->
                                     </td>

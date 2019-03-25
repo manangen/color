@@ -12,8 +12,7 @@
 */
 
 Route::get('/', function () {
-	// dump('萝卜');
-    return view('welcome');
+	return view('welcome');
 });
 
 
@@ -99,9 +98,13 @@ Route::get('/', function () {
 
 
 
-
-// 定义后台首页的路由
-Route::get('admin','Admin\IndexController@index');
+	
+// 定义后台登陆路由 
+Route::get('admin_login','Admin\LoginController@admin_login');
+Route::post('dologin','Admin\LoginController@dologin');
+// 定义后台退出登陆
+Route::get('admin/login_out','Admin\LoginController@login_out');
+Route::group(['middleware'=> ['admin_login']],function(){
 
 // 定义后台用户的路由
 Route::resource('admin/users','Admin\UsersController');
@@ -117,6 +120,7 @@ Route::get('admin','Admin\IndexController@index');
 
 // 定义后台链接路由
 Route::resource('admin/link','Admin\LinkController');
+
 
 // 定义前台的路由
 Route::resource('home','Home\IndexController');
