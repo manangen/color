@@ -122,8 +122,13 @@ Route::get('admin','Admin\IndexController@index');
 Route::resource('admin/link','Admin\LinkController');
 
 
-// 定义前台的路由
+//公告路由
+Route::resource('admin/notice','Admin\NoticeController');
+
+
+//定义前台的路由
 Route::resource('home','Home\IndexController');
+
 
 // 定义前台登录注册
 Route::get('homes/register','Home\UserController@create');
@@ -235,3 +240,11 @@ Route::post('homes/user/store','Home\UserController@store');
 
 
 
+<<<<<<< HEAD
+=======
+//轮播图路由
+Route::resource('admin/slid','Admin\Slidcontroller');
+
+//商品管理路由
+Route::resource('admin/goods','Admin\GoodsController');
+>>>>>>> origin/yang

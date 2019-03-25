@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;   //引入模型
+
 use DB;  //SQL语句需要添加这个
 class CatesController extends Controller
 {
@@ -42,6 +43,7 @@ class CatesController extends Controller
     //添加操作
     public function create(Request $request)
     {   
+
             // $cates_data = Cates::all();
              $id = $request->input('id','');
                 // var_dump($id);
@@ -58,7 +60,15 @@ class CatesController extends Controller
      */
     public function store(Request $request)
     {  
-
+         
+           //设置限制表单为空不能提交
+           $this->validate($request, [
+            'cname' => 'required',
+        ],
+        [
+            'cname.required' => '分类名称不能为空',
+        ]);
+           
          //打印接受传来的值 $request->all()
       // dump($request->all());
       $cates = new Cates;
@@ -138,7 +148,7 @@ class CatesController extends Controller
            if(Cates::destroy($id)){
                return redirect('admin/cates')->with('success','删除成功');
            }else{
-            return back()->with('error','删除失败');
+                return back()->with('error','删除失败');
            }
     }
 }
