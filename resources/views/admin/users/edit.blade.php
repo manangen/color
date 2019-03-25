@@ -28,10 +28,6 @@
                     <div class="mws-form-item">
                         <input type="text" name="uname"  readonly value="{{ $user->uname }}" class="small">
                     </div>
-<<<<<<< HEAD
-=======
-                
->>>>>>> origin/laowan
                 </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">邮箱</label>

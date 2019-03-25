@@ -26,7 +26,8 @@
                                     <td>{{ $v->pid }}</td>
                                     <td>{{ $v->path }}</td>
                                     <td>{{ $v->status == 1? '激活':'未激活' }}</td>
-                                    <td>   
+                                    <td>  
+                                            <div style="text-align:center;"> 
                                            <a href="/admin/cates/create?id={{ $v->id }}" class="btn btn-info">添加子分类</a>
                                           <form action="/admin/cates/{{ $v->id }}" method="post" style="display:inline-block;">
                                           	   {{ csrf_field() }}

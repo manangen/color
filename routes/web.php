@@ -15,31 +15,219 @@ Route::get('/', function () {
 	// dump('萝卜');
     return view('welcome');
 });
-<<<<<<< HEAD
 
 
-//定义后台首页的路由
-Route::get('admin','Admin\IndexController@index');
 
-//定义后台用户的路由
-Route::resource('admin/users','Admin\UsersController');
 
-//定义前台的路由
-Route::resource('home','Home\IndexController');
 
-//分类路由
-Route::resource('admin/cates','Admin\CatesController');
 
-//轮播图路由
-Route::resource('admin/slid','Admin\Slidcontroller');
-=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 定义后台首页的路由
 Route::get('admin','Admin\IndexController@index');
 
-// 定义后台用户路由
+// 定义后台用户的路由
 Route::resource('admin/users','Admin\UsersController');
+
+// 分类路由
+Route::resource('admin/cates','Admin\CatesController');
+
+// 轮播图路由
+Route::resource('admin/slid','Admin\SlidController');
+
+// 定义后台首页的路由
+Route::get('admin','Admin\IndexController@index');
 
 // 定义后台链接路由
 Route::resource('admin/link','Admin\LinkController');
 
->>>>>>> origin/laowan
+// 定义前台的路由
+Route::resource('home','Home\IndexController');
+
+// 定义前台登录注册
+Route::get('homes/register','Home\UserController@create');
+
+//前台注册
+Route::post('homes/user/insert','Home\UserController@insert');
+Route::get('homes/user/sendMobileCode','Home\UserController@sendMobileCode');
+
+//前台登录
+Route::post('homes/user/store','Home\UserController@store');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

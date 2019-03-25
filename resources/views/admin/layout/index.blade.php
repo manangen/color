@@ -8,7 +8,7 @@
 
 <!-- Viewport Metatag -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Plugin Stylesheets first to ease overrides -->
 <link rel="stylesheet" type="text/css" href="/admin_public/plugins/colorpicker/colorpicker.css" media="screen">
 
@@ -31,7 +31,6 @@
 <!-- Theme Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/admin_public/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admin_public/css/themer.css" media="screen">
-
 
 <title>解忧百货</title>
 <link rel="stylesheet" type="text/css" href="/admin_public/css/page_page.css">
@@ -122,7 +121,7 @@
                     <li class="active">
                         <a href="#"><i class="icon-bag"></i>商品管理</a>
                         <ul>
-<<<<<<< HEAD
+
                             <li><a href="">商品列表</a></li>
                             <li><a href="">商品添加</a></li>
                         </ul>
@@ -139,10 +138,13 @@
                         <ul>
                             <li><a href="/admin/slid">轮播图列表</a></li>
                             <li><a href="/admin/slid/create">轮播图添加</a></li>
-=======
-                            <li><a href="/admin/link">链接列表</a></li>
-                            <li><a href="/admin/link/create">添加链接</a></li>
->>>>>>> origin/laowan
+                        </ul>
+                    </li>
+                    <li class="active">
+                     <a href="#"><i class="icon-link"></i>链接管理</a>
+                     <ul>
+                        <li><a href="/admin/link">链接列表</a></li>
+                        <li><a href="/admin/link/create">添加链接</a></li>
                         </ul>
                     </li>
                 </ul>
