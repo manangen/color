@@ -94,6 +94,7 @@ class GoodsController extends Controller
          $goods->pic = $file_name;  //3上传图片
          $goods->company = $request->input('company','');//生产厂家
          $goods->descr = $request->input('descr','');//商品说明
+
            
 
        
@@ -124,6 +125,7 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function edit($id)
     {     
         //打印传过来的ID

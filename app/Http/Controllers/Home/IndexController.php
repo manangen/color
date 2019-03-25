@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\notices;
+use DB;
 class IndexController extends Controller
 {
     /**
@@ -15,7 +16,10 @@ class IndexController extends Controller
     public function index()
     {
         //加载模板
-        return view('home/index/index');
+
+            $notices = DB::select('select * from notices');
+            // dump($notices);
+        return view('home/index/index',['notices'=>$notices]);
            
     }
 

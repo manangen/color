@@ -56,7 +56,7 @@
                                         <label class="mws-form-label">商品图片上传</label>
                      
                                         <div class="mws-form-item">
-                                             <input type="file" class="small"  name="pic" src="{{ $goods->pic}}">
+                                             <input type="file" class="small"  name="pic" value="{{ $goods->pic}}">
                                         </div>
                                    </div>
                     			<div class="mws-form-row">
