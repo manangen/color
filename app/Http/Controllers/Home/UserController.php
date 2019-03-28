@@ -58,6 +58,7 @@ class UserController extends Controller
         }
         // 开启事务   DB::beginTransaction();
         // 提交事务   DB::commit()
+
         // 回滚事务   DB::rollBack()      
         $users_home = new users_home;
         $users_home->uname = $request->input('uname','');
@@ -65,24 +66,15 @@ class UserController extends Controller
         $users_home->password = Hash::make($request->input('password',''));
         // dump($user_homes);
         $res = $users_home->save();     
+
         if($res){
             DB::commit();
-            echo '<script>alert("添加成功");location.href="/homes/register";</script>';
+            echo '<script>alert("注册成功");location.href="/homes/register";</script>';
             // return redirect('/homes/register')->with("<script>alert('添加成功')</script>");
         }else{
             DB::rollBack();
-            echo '<script>alert("添加失败");location.href="/homes/register";</script>';
+            echo '<script>alert("注册失败");location.href="/homes/register";</script>';
         }
-
-
-       
-           
-      
-        //验证密码不能为空
-        // if($request->password != $request->Null){
-
-        // }   
-         
     }
 
     /**

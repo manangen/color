@@ -62,8 +62,7 @@
                                    <div class="mws-form-row">
                                         <label class="mws-form-label">商品图片上传</label>
                                         <div class="mws-form-item" style="width:50%">
-                                             <input type="file" class="small"  name="pic">
-                                        </div>
+                                        <input type="file" class="small"  name="pic">
                                    </div>
                     			<div class="mws-form-row">
                     				<label class="mws-form-label">商品状态</label>
@@ -82,7 +81,7 @@
                                     </div>
                     		<div class="mws-button-row">
                     			<input type="submit" value="提交" class="btn btn-danger">
-                    			
+                    			<input type="reset" value="重置" class="btn">
                     		</div>
                     	</form>
                     </div>    	

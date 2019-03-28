@@ -28,22 +28,19 @@
                     <div class="mws-form-item">
                         <input type="text" name="sname"  value="{{ $slid->sname }}" class="small">
                     </div>
-                    <!-- readonly -->
                 </div>
-           </div>
             <div class="mws-form-row">
                  <label class="mws-form-label">图片</label>
                  <div class="mws-form-item">
                  <input type="text" name="spic" value="{{ $slid->spic }}" class="small">
                 </div>
             </div>
-             <div class="mws-form-row">
-                    <label class="mws-form-label">轮播图描述</label>
-                    <div class="mws-form-item">
-                        <input type="text" name="description" value="{{ $slid->description}}" class="small">
-                    </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">轮播图描述</label>
+                <div class="mws-form-item">
+                    <input type="text" name="description" value="{{ $slid->description}}" class="small">
                 </div>
-           </div>
+            </div>
             <div class="mws-button-row">
                 <input type="submit" value="提交" class="btn btn-success">
                 <input type="reset" value="重置" class="btn">

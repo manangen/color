@@ -64,19 +64,15 @@
             
                 
                 <!-- Username and Functions -->
-                    <div id="mws-username">
-                        
-                        Hello, 管理员                       
-                    </div>
-                    <ul>
-                        <li><a href="/admin/login_out">退出</a></li>
-                    </ul>
-                
-                
+                <div id="mws-username">
+                    Hello,管理员                     
+                </div>
+                <ul>
+                    <li><a href="/admin/login_out">退出</a></li>
+                </ul>
             </div>
         </div>
     </div>
-    
     <!-- Start Main Wrapper -->
     <div id="mws-wrapper">
     

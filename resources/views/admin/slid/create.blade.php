@@ -28,12 +28,6 @@
                         <input type="text" name="sname" value="{{ old('sname') }}" class="small">
                     </div>
                 </div>
-               <!--  <div class="mws-form-row">
-                    <label class="mws-form-label">轮播图路径</label>
-                    <div class="mws-form-item">
-                        <input type="text" name="surl" value="{{ old('surl') }}" class="small">
-                    </div>
-                </div> -->
                 <div class="mws-form-row">
                     <label class="mws-form-label">轮播图描述</label>
                     <div class="mws-form-item">

@@ -51,7 +51,7 @@
 						<p style="width:100px; overflow: hidden;text-overflow:ellipsis;white-space:nowrap;">
 						{{$v->userinfo->description}}
 						</p>
-						</abbr>
+					</abbr>
 					</td>
 					<td>
 						<form style="display:inline-block" action="/admin/users/{{$v->id}}" method="post">

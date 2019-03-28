@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="public-head-layout container">
-		<a class="logo" href="index.html"><img src="/home_public/images/icons/logo.jpg" alt="U袋网" class="cover"></a>
+		<a class="logo" href="/home"><img src="/home_public/images/icons/logo.jpg" alt="U袋网" class="cover"></a>
 	</div>
 	<div style="background:url(/home_public/images/login_bg.jpg) no-repeat center center; ">
 		<div class="login-layout container">
@@ -161,7 +161,11 @@
 						</div>
 						<div class="checkbox" >
 	                        <label>
+<<<<<<< HEAD
 	                        	<input checked="" name="agree" id="register_checkbox" value="" type="checkbox"><i></i> 同意<a href="temp_article/udai_article3.html">U袋网用户协议</a>
+=======
+	                        	<input checked="" id="register_checkbox" type="checkbox"><i></i> 同意<a href="#">U袋网用户协议</a>
+>>>>>>> origin/laowan
 	                        </label>
 	                    </div>
 	                    <!-- 错误信息 -->

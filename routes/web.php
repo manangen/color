@@ -100,15 +100,15 @@ Route::get('/', function () {
 
 
 
-// 定义后台首页的路由
-Route::get('admin','Admin\IndexController@index');
-
 	
 // 定义后台登陆路由 
 Route::get('admin_login','Admin\LoginController@admin_login');
 Route::post('dologin','Admin\LoginController@dologin');
+
 // 定义后台退出登陆
 Route::get('admin/login_out','Admin\LoginController@login_out');
+
+// 后台登陆
 Route::group(['middleware'=> ['admin_login']],function(){
 
 //定义后台首页
@@ -119,10 +119,10 @@ Route::get('admin','Admin\IndexController@index');
 // 定义后台用户的路由
 Route::resource('admin/users','Admin\UsersController');
 
-// 分类路由
+// 后台分类路由
 Route::resource('admin/cates','Admin\CatesController');
 
-// 轮播图路由
+// 后台轮播图路由
 Route::resource('admin/slid','Admin\SlidController');
 
 //定义商品管理
@@ -138,9 +138,11 @@ Route::get('admin','Admin\IndexController@index');
 Route::resource('admin/link','Admin\LinkController');
 });
 
+
 //前台登录
 Route::post('homes/user/store','Home\UserController@store');
-// 定义前台的路由
+
+//定义前台的路由
 Route::resource('home','Home\IndexController');
 
 // 定义前台登录注册
@@ -254,3 +256,7 @@ Route::get('homes/user/sendMobileCode','Home\UserController@sendMobileCode');
 
 
 
+=======
+// 前台购物车
+Route::resource('home/shop/index','Home\shopController');
+>>>>>>> origin/laowan
