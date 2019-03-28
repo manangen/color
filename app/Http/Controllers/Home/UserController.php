@@ -65,7 +65,7 @@ class UserController extends Controller
         $users->uname = $request->input('uname','');
         $users->phone = $request->input('phone','');
         $users->upass = Hash::make($request->input('upass',''));
-        dump($users);
+        // dump($users);
         $res = $users->save();     
         if($res){
             DB::commit();
@@ -73,12 +73,7 @@ class UserController extends Controller
         }else{
             DB::rollBack();
             return redirect('home/register')->with('error','注册失败');
-        }
-
-
-       
-           
-      
+        }     
         //验证密码不能为空
         // if($request->password != $request->Null){
 

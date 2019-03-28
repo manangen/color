@@ -50,8 +50,9 @@
                                    
                                    
                               <div class="mws-button-row">
-                                   <input type="submit" value="提交" class="btn btn-danger">
-                    
+                                  <input type="submit" value="提交" class="btn btn-danger">
+                                  <input type="reset" value="重置" class="btn">
+                                  
                               </div>
                          </form>
                     </div>         

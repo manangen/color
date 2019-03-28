@@ -64,19 +64,15 @@
             
                 
                 <!-- Username and Functions -->
-                    <div id="mws-username">
-                        
-                        Hello, 管理员                       
-                    </div>
-                    <ul>
-                        <li><a href="/admin/login_out">退出</a></li>
-                    </ul>
-                
-                
+                <div id="mws-username">
+                    Hello,管理员                     
+                </div>
+                <ul>
+                    <li><a href="/admin/login_out">退出</a></li>
+                </ul>
             </div>
         </div>
     </div>
-    
     <!-- Start Main Wrapper -->
     <div id="mws-wrapper">
     
@@ -111,7 +107,7 @@
                     </li>
                     
                     <li class="active">
-                        <a href="#"><i class="icon-bag"></i>链接管理</a>
+                        <a href="#"><i class="icon-bag"></i>商品管理</a>
                         <ul>
 
                             <li><a href="/admin/goods">商品列表</a></li>

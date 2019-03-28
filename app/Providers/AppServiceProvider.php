@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\Http\Controllers\Home\LinkController;
+use View;
 class AppServiceProvider extends ServiceProvider
 {
     /**

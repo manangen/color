@@ -45,11 +45,10 @@ return [
 
         'local' => [
             'driver' => 'local',
-<<<<<<< HEAD
+
             'root' => public_path('uploads'),
-=======
+
             'root' => public_path('admin_public'),
->>>>>>> origin/yang
         ],
 
         'public' => [

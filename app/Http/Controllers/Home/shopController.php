@@ -4,24 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Cates;
-use App\Models\Link;
-use DB;
-class IndexController extends Controller
+
+class shopController extends Controller
 {
-    public static function getPidCates($pid = 0)
-    {
-        $data = [];
-        // 获取一级分类
-        $yiji_data = Cates::where('pid',$pid)->get();
-        // 通过一级分类获取二级分类
-         foreach ($yiji_data as $key => $value) {
-            $temp = self::getPidCates($value->id);
-            $value['sub'] = $temp;
-            $data[] = $value;
-        } 
-        return $data;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -29,11 +14,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        // 友情链接遍历
-        $link = DB::select('select * from link');
-        //加载模板
-        return view('home/index/index',['cates_data'=> self::getPidCates(),'link'=>$link]);
-           
+        //
+        return view('home/shop/shop');
     }
 
     /**

@@ -105,7 +105,7 @@ class LoginController extends Controller
     		return back()->with('error','密码错误');
     	}
     	session(['users' => $user->users,'upass' => $user->upass]);
-    	return redirect('/admin/index');
+    	return redirect('/admin');
 	}
 	// 退出登陆
 	public function login_out(Request $request)
