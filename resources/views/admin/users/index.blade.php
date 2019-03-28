@@ -66,7 +66,8 @@
 			</tbody>
 		</table>
 				<div class="dataTables_info" id="DataTables_Table_0_info">
-				Showing 1 to 10 of 57 entries</div>
+					Showing 1 to 10 of 57 entries
+				</div>
 				<div class="dataTables_paginate " id="page_page" style="padding-bottom:0px;"> 				
 					{{$users->appends($request)->links()}}
 				</div>

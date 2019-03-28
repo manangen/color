@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -9,7 +8,7 @@
 
 <!-- Viewport Metatag -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Plugin Stylesheets first to ease overrides -->
 <link rel="stylesheet" type="text/css" href="/admin_public/plugins/colorpicker/colorpicker.css" media="screen">
 
@@ -32,6 +31,8 @@
 <!-- Theme Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/admin_public/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admin_public/css/themer.css" media="screen">
+
+<title>解忧百货</title>
 <link rel="stylesheet" type="text/css" href="/admin_public/css/page_page.css">
 <title>MWS Admin - Form Layouts</title>
 
@@ -60,22 +61,18 @@
             <!-- User Information and functions section -->
             <div id="mws-user-info" class="mws-inset">
             
-            	<!-- User Photo -->
-            	<div id="mws-user-photo">
-                	<img src="/admin_public/example/profile.jpg" alt="User Photo">
-                </div>
+            
                 
                 <!-- Username and Functions -->
-                <div id="mws-user-functions">
                     <div id="mws-username">
-                        Hello, 管理员
+                        
+                        Hello, 管理员                       
                     </div>
                     <ul>
-                    	<li><a href="#">头像上传</a></li>
-                        <li><a href="#">修改密码</a></li>
-                        <li><a href="index.html">退出</a></li>
+                        <li><a href="/admin/login_out">退出</a></li>
                     </ul>
-                </div>
+                
+                
             </div>
         </div>
     </div>
@@ -97,17 +94,14 @@
                 <span></span>
             </div>
             
-        	<!-- Searchbox -->
-        	<div id="mws-searchbox" class="mws-inset">
-            	<form action="typography.html">
-                	<input type="text" class="mws-search-input" placeholder="Search...">
-                    <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
-                </form>
-            </div>
             
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
+                	<li class="active">
+                		<a href="/admin/"><i class="icon-home"></i> 主页 </a>
+                	</li>
+
                     <li class="active">
                         <a href="#"><i class="icon-users"></i> 用户管理</a>
                         <ul>
@@ -115,11 +109,11 @@
                             <li><a href="/admin/users/create">用户添加</a></li>
                         </ul>
                     </li>
-
                     
                     <li class="active">
                         <a href="#"><i class="icon-bag"></i>商品管理</a>
                         <ul>
+
                             <li><a href="/admin/goods">商品列表</a></li>
                             <li><a href="/admin/goods/create">商品添加</a></li>
                         </ul>
@@ -143,11 +137,20 @@
                     </li>
 
 
+
                     <li class="active">
                         <a href="#"><i class="icon-retweet"></i>轮播图管理</a>
                         <ul>
                             <li><a href="/admin/slid">轮播图列表</a></li>
                             <li><a href="/admin/slid/create">轮播图添加</a></li>
+          </ul>
+                    </li>
+                    <li class="active">
+                     <a href="#"><i class="icon-link"></i>链接管理</a>
+                     <ul>
+                        <li><a href="/admin/link">链接列表</a></li>
+                        <li><a href="/admin/link/create">添加链接</a></li>
+
                         </ul>
                     </li>
 
@@ -185,7 +188,7 @@
                        
             <!-- Footer -->
             <div id="mws-footer">
-            	Copyright Your Website 2012. All Rights Reserved.
+            	© 2019 网易公司 京ICP证080268号
             </div>
             
         </div>

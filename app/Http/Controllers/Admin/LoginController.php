@@ -1,30 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Home;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Requests\AdminloginStoreRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-use App\Models\notices;
-use DB;
-
-use App\Models\Cates;
-use App\Models\Goods; 
-class IndexController extends Controller
+use Illuminate\Support\Facades\Auth;
+use App\Models\Users;
+use Hash;
+class LoginController extends Controller
 {
-    public static function getPidCates($pid = 0)
-    {
-        $data = [];
-        // 获取一级分类
-        $yiji_data = Cates::where('pid',$pid)->get();
-        // 通过一级分类获取二级分类
-         foreach ($yiji_data as $key => $value) {
-            $temp = self::getPidCates($value->id);
-            $value['sub'] = $temp;
-            $data[] = $value;
-        } 
-        return $data;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -32,16 +16,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-         
-        //加载模板
-            
-                    //公告遍历
-            $notices = DB::select('select * from notices');
-            // dump($notices);
-            
-        return view('home/index/index',['cates_data'=> self::getPidCates(),'notices'=>$notices] );
-
-           
+        
     }
 
     /**
@@ -49,9 +24,9 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+      
     }
 
     /**
@@ -73,11 +48,7 @@ class IndexController extends Controller
      */
     public function show($id)
     {
-
-         $cates = Goods::where('typeid','=',$id)->get();
-          // dump($cates);
-
-             
+        //
     }
 
     /**
@@ -88,7 +59,7 @@ class IndexController extends Controller
      */
     public function edit($id)
     {
-          
+        //
     }
 
     /**
@@ -100,7 +71,7 @@ class IndexController extends Controller
      */
     public function update(Request $request, $id)
     {
-          
+        //
     }
 
     /**
@@ -112,5 +83,38 @@ class IndexController extends Controller
     public function destroy($id)
     {
         //
+    }
+    // 登陆页面
+    public function admin_login()
+    {
+        //
+        return view('admin.login');
+    }
+    // 登陆验证
+    public function dologin(AdminloginStoreRequest $request)
+    {
+    	$name = $request->input('uname','');
+    	$pass = $request->input('upass','');
+    	$user = Users::where('uname',$name)->first();
+    	if(!$user){
+    		return back()->with('error','用户名不存在');
+    	}
+    	$password = $user->upass;
+    	if(!Hash::check($pass,$password)){
+    		$request->flash();
+    		return back()->with('error','密码错误');
+    	}
+    	session(['users' => $user->users,'upass' => $user->upass]);
+    	return redirect('/admin/');
+	}
+	// 退出登陆
+	public function login_out(Request $request)
+    {
+        //
+        if(!$request->session()->forget('users')) {
+        	return redirect('/admin_login');
+        }else{
+
+        }
     }
 }

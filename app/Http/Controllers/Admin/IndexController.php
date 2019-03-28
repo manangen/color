@@ -12,7 +12,7 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // 加载模板
         return view('admin.index.index');

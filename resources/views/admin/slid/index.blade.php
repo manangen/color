@@ -8,7 +8,7 @@
 				</div>
 				<div class="mws-panel-body no-padding">
 				<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
-					<form action="/admin/slid" method="get">
+					<!-- <form action="/admin/slid" method="get">
 					<div id="DataTables_Table_0_length" class="dataTables_length">
 						<label>显示 <select size="1" name="count">
 							<option value="5" @if(isset($request['count']) &&  $request['count'] == 5) selected @endif>5</option>
@@ -22,14 +22,16 @@
 						<input type="submit"  class="btn btn-info btn-xs"value="搜索">
 					</label>
 					</div>
-				</form>
+				</form> -->
+					 <div style="text-align:center;">
 					<table class="mws-datatable mws-table dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
 				<thead>
 					<tr role="row">
 						<th>ID</th> 
 						<th>轮播图名</th>
-						<th>轮播图路径</th>
+						<th>图片</th>
 						<th>轮播图状态</th>
+						<!-- <th>轮播图路径</th> -->
 						<th>轮播图描述</th>
 						<th>操作</th>
 					</tr>
@@ -40,7 +42,9 @@
 				<tr class="even">
 					<td>{{$v->id}}</td>
 					<td>{{$v->sname}}</td>
-					<td>{{$v->surl}}</td>
+					<td >
+					<img style="width：100px;height:100px;" src="{{$v->spic}}">
+					</td>
 					<td>{{$v->status}}</td>
 					<td>{{$v->description}}</td>
 					<td>
@@ -57,8 +61,8 @@
 		</table>
 				<div class="dataTables_info" id="DataTables_Table_0_info">
 				Showing 1 to 10 of 57 entries</div>
-				<div class="dataTables_paginate " id="page_page" style="padding-bottom:0px;"> 				
-					{{$slid->appends($request)->links()}}
+				<!-- <div class="dataTables_paginate " id="page_page" style="padding-bottom:0px;"> 				 -->
+					<!-- {{$slid->appends($request)->links()}} -->
 				</div>
 			</div>
 		</div>

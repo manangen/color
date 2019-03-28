@@ -16,12 +16,11 @@
 
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
-<<<<<<< HEAD
+
         <span>用户编辑</span>
-=======
+
         <span>用户修改</span>
->>>>>>> bf7230399214c8396af193e40d2cbedb1cf86193
-    </div>
+         </div>
     <div class="mws-panel-body no-padding">
         <form class="mws-form" action="/admin/users/{{$user->id}}" method="post">
             {{ csrf_field() }}
@@ -31,11 +30,7 @@
                     <label class="mws-form-label">用户名</label>
                     <div class="mws-form-item">
                         <input type="text" name="uname"  readonly value="{{ $user->uname }}" class="small">
-                    </div>
-<<<<<<< HEAD
-           
-=======
->>>>>>> bf7230399214c8396af193e40d2cbedb1cf86193
+
                 </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">邮箱</label>
