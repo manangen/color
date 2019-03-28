@@ -99,7 +99,6 @@ Route::get('/', function () {
 
 
 
-
 	
 // 定义后台登陆路由 
 Route::get('admin_login','Admin\LoginController@admin_login');
@@ -115,7 +114,6 @@ Route::group(['middleware'=> ['admin_login']],function(){
 Route::get('admin/index','Admin\IndexController@index');
 Route::get('admin','Admin\IndexController@index');
 
-
 // 定义后台用户的路由
 Route::resource('admin/users','Admin\UsersController');
 
@@ -124,20 +122,13 @@ Route::resource('admin/cates','Admin\CatesController');
 
 // 后台轮播图路由
 Route::resource('admin/slid','Admin\SlidController');
-
 //定义商品管理
 Route::resource('admin/goods','Admin\GoodsController');
-
-//定义公告管理
-Route::resource('admin/notice','Admin\NoticeController');
-
-// 定义后台首页的路由
-Route::get('admin','Admin\IndexController@index');
-
 // 定义后台链接路由
 Route::resource('admin/link','Admin\LinkController');
+//公告路由
+Route::resource('admin/notice','Admin\NoticeController');
 });
-
 
 //前台登录
 Route::post('homes/user/store','Home\UserController@store');
@@ -151,112 +142,3 @@ Route::get('homes/register','Home\UserController@create');
 //前台注册
 Route::post('homes/user/insert','Home\UserController@insert');
 Route::get('homes/user/sendMobileCode','Home\UserController@sendMobileCode');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-// 前台购物车
-Route::resource('home/shop/index','Home\shopController');
->>>>>>> origin/laowan

@@ -28,6 +28,7 @@
                         <input type="text" name="sname" value="{{ old('sname') }}" class="small">
                     </div>
                 </div>
+
                 <div class="mws-form-row">
                     <label class="mws-form-label">轮播图描述</label>
                     <div class="mws-form-item">
@@ -36,8 +37,10 @@
                 </div>
                   <div class="mws-form-row">
                     <label class="mws-form-label">图片上传</label>
+
                     <div class="mws-form-item" style="width:50%">
                         <input type="file" name="spic" value="{{ old('spic') }}" class="small" width="150px ">
+
                     </div>
                 </div>
             </div>

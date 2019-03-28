@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\HomeStoreRequest;
 use App\Models\Users_home;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Users;
 use DB;
 use Hash;
+use Mail;
 
 class UserController extends Controller
 {
@@ -42,10 +44,6 @@ class UserController extends Controller
         'smscode' => 'required',
         'password' => 'required|regex:/^[\w]{6,}$/',
      ],[
-        'uname.required'=>'用户名不能为空',
-        'uname.unique'=>'用户名已存在',
-        'uname.regex'=>'用户名格式错误',
-        'phone.required'=>'手机号不能为空',
         'uphone.regex'=>'手机号格式不正确',
         'smscode.required' => '验证码不能为空',
         'password.required'=>'确认密码不能为空',
@@ -75,6 +73,40 @@ class UserController extends Controller
             DB::rollBack();
             echo '<script>alert("注册失败");location.href="/homes/register";</script>';
         }
+      
+        // if(session('rand_phone_code') != $request->phone){
+        //    return back()->with('error','验证码错误');
+
+        // }
+        // 开启事务   DB::beginTransaction();
+        // 提交事务   DB::commit()
+        // 回滚事务   DB::rollBack()
+        
+        DB::beginTransaction();
+
+        $users = new Users;
+        $users->uname = $request->input('uname','');
+        $users->phone = $request->input('phone','');
+        $users->upass = Hash::make($request->input('upass',''));
+        dump($users);
+        $res = $users->save();     
+        if($res){
+            DB::commit();
+            return redirect('homes/register')->with('success','注册成功');
+        }else{
+            DB::rollBack();
+            return redirect('home/register')->with('error','注册失败');
+        }
+
+
+       
+           
+      
+        //验证密码不能为空
+        // if($request->password != $request->Null){
+
+        // }   
+         
     }
 
     /**
@@ -167,6 +199,7 @@ class UserController extends Controller
         'key'   => '91dddd7d274ef0c62aa553098870446a', //您申请的APPKEY
         'mobile'    => $phone, //接受短信的用户手机号码
         'tpl_id'    => '146242', //您申请的短信模板ID，根据实际情况修改
+
         'tpl_value' =>'#code#='.$rand_phone_code //您设置的模板变量，根据实际情况修改
     );
 

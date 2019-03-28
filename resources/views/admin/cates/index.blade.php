@@ -36,10 +36,16 @@
                                             <div style="text-align:center;"> 
                                            <a href="/admin/cates/create?id={{ $v->id }}" class="btn btn-info">添加子分类</a>
                                           <form action="/admin/cates/{{ $v->id }}" method="post" style="display:inline-block;">
+
+                                
+
                                           	   {{ csrf_field() }}
                                           	   {{ method_field('DELETE')}}
+                                    
+                                    	
                                           	<input type="submit" value="删除" class="btn btn-warning" onclick="return confirm('数据无价小心操作')">
                                           </form>
+
                                     </td>
                                 </tr>
                                @endforeach

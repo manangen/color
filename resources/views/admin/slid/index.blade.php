@@ -30,6 +30,7 @@
 					<td>{{$v->sname}}</td>
 					<td >
 					<img src="/admin_public/slid{{ $v->spic }}" width="50px"></td>
+
 					</td>
 					<td>{{$v->status}}</td>
 					<td>{{$v->description}}</td>

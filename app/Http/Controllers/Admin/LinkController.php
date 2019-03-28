@@ -47,7 +47,9 @@ class LinkController extends Controller
         $link->lurl = $request->input('lurl','');
         $link->description = $request->input('description','');
         if($link->save()){
-            return redirect('admin/link/')->with('success','添加成功');
+
+            return redirect('admin/link/create')->with('success','添加成功');
+
         }else{
             return back('admin/link/create')->with('error','添加失败');
         }

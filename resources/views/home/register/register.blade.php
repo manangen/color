@@ -19,6 +19,7 @@
 <body>
 	<div class="public-head-layout container">
 		<a class="logo" href="/home"><img src="/home_public/images/icons/logo.jpg" alt="U袋网" class="cover"></a>
+
 	</div>
 	<div style="background:url(/home_public/images/login_bg.jpg) no-repeat center center; ">
 		<div class="login-layout container">
@@ -41,6 +42,10 @@
 					        </ul>
 					    </div>
 					@endif
+
+					<!-- 登录的表单 -->
+					<form class="tabs_form" action="/homes/user/store" method="post" id="login_form">
+					{{csrf_field()}}
 						<div class="form-group">
 							<div class="input-group">
 							<div class="input-group-addon">
@@ -49,14 +54,6 @@
 							<input class="form-control user" name="uname" id="uname" required placeholder="用户名" maxlength="15" autocomplete="off" type="text">
 						</div>
 					</div>
-						  <!-- <div class="form-group">
-							<div class="input-group">
-								<div class="input-group-addon">
-									<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-								</div>
-								<input class="form-control phone" name="uphone" id="uphone" required placeholder="手机号" maxlength="11" autocomplete="off" type="text">
-							</div>
-						</div> -->
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon">
@@ -156,16 +153,16 @@
 									<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 								</div>
 								<input class="form-control password" name="password" id="register_pwd" placeholder="请输入密码" autocomplete="off" type="password">
+
 								<div class="input-group-addon pwd-toggle" title="显示密码"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></div>
 							</div>
 						</div>
 						<div class="checkbox" >
 	                        <label>
-<<<<<<< HEAD
+
 	                        	<input checked="" name="agree" id="register_checkbox" value="" type="checkbox"><i></i> 同意<a href="temp_article/udai_article3.html">U袋网用户协议</a>
-=======
-	                        	<input checked="" id="register_checkbox" type="checkbox"><i></i> 同意<a href="#">U袋网用户协议</a>
->>>>>>> origin/laowan
+
+
 	                        </label>
 	                    </div>
 	                    <!-- 错误信息 -->
@@ -253,6 +250,7 @@
                     </div>
                 </div>
 			</div>
+
 		</div>
 	</div>
 	<script type="text/javascript">

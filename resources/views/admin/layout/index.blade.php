@@ -70,6 +70,7 @@
                 <ul>
                     <li><a href="/admin/login_out">退出</a></li>
                 </ul>
+
             </div>
         </div>
     </div>

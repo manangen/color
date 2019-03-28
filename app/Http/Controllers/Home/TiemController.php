@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-use App\Http\Requests\AdminloginStoreRequest;
+namespace App\Http\Controllers\Home;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Users;
-use Hash;
-class LoginController extends Controller
+use App\Models\Cates;
+use App\Models\Goods; 
+class TiemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        
+      
     }
 
     /**
@@ -24,9 +23,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-      
+        //
     }
 
     /**
@@ -37,7 +36,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -46,9 +45,13 @@ class LoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //遍历商品物品操作
     public function show($id)
-    {
-        //
+    {  
+        // dump($id);
+         $cates = Goods::where('typeid','=',$id)->get();
+         // dump($cates);
+        return view('home.tiem.tiem',['cates'=>$cates]);
     }
 
     /**
@@ -57,9 +60,13 @@ class LoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //商品详情页面
     public function edit($id)
-    {
-        //
+    {        
+          //查询出一条数据
+          $goods = Goods::find($id);
+          // dump($goods);
+        return view("home.show.show",['goods'=>$goods]);
     }
 
     /**
@@ -83,39 +90,5 @@ class LoginController extends Controller
     public function destroy($id)
     {
         //
-    }
-    // 登陆页面
-    public function admin_login()
-    {
-        //
-        return view('admin.login');
-    }
-    // 登陆验证
-    public function dologin(AdminloginStoreRequest $request)
-    {
-    	$name = $request->input('uname','');
-    	$pass = $request->input('upass','');
-    	$user = Users::where('uname',$name)->first();
-    	if(!$user){
-    		return back()->with('error','用户名不存在');
-    	}
-    	$password = $user->upass;
-    	if(!Hash::check($pass,$password)){
-    		$request->flash();
-    		return back()->with('error','密码错误');
-    	}
-    	session(['users' => $user->users,'upass' => $user->upass]);
-    	return redirect('/admin');
-
-	}
-	// 退出登陆
-	public function login_out(Request $request)
-    {
-        //
-        if(!$request->session()->forget('users')) {
-        	return redirect('/admin_login');
-        }else{
-
-        }
     }
 }

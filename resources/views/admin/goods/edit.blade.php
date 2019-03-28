@@ -57,6 +57,8 @@
                      
                                         <div class="mws-form-item" style="width:47%;">
                                              <input type="file" class="small"  name="pic" src="{{ $goods->pic}}">
+                                        <div class="mws-form-item">
+                                             <input type="file" class="small"  name="pic" value="{{ $goods->pic}}">
                                         </div>
                                    </div>
                     			<div class="mws-form-row">

@@ -18,6 +18,7 @@
     <div class="mws-panel-header">
         <span>用户修改</span>
     </div>
+
     <div class="mws-panel-body no-padding">
         <form class="mws-form" action="/admin/users/{{$user->id}}" method="post">
             {{ csrf_field() }}
@@ -29,6 +30,7 @@
                         <input type="text" name="uname"  readonly value="{{ $user->uname }}" class="small">
                     </div>
                 </div>
+            </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">邮箱</label>
                     <div class="mws-form-item">
