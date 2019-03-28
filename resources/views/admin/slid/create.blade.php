@@ -42,8 +42,8 @@
                 </div>
                   <div class="mws-form-row">
                     <label class="mws-form-label">图片上传</label>
-                    <div class="mws-form-item">
-                        <input type="file" name="spic" value="{{ old('spic') }}" class="small">
+                    <div class="mws-form-item" style="width:50%">
+                        <input type="file" name="spic" value="{{ old('spic') }}" class="small" width="150px ">
                     </div>
                 </div>
             </div>

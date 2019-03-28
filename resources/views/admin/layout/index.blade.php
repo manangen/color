@@ -111,7 +111,7 @@
                     </li>
                     
                     <li class="active">
-                        <a href="#"><i class="icon-bag"></i>链接管理</a>
+                        <a href="#"><i class="icon-bag"></i>商品管理</a>
                         <ul>
 
                             <li><a href="/admin/goods">商品列表</a></li>

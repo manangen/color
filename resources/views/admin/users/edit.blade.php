@@ -17,8 +17,6 @@
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
 
-        <span>用户编辑</span>
-
         <span>用户修改</span>
          </div>
     <div class="mws-panel-body no-padding">

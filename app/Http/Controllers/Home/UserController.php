@@ -4,10 +4,11 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Users;
+use App\Http\Requests\HomeStoreRequest;
+use App\Models\Users_home;
+use Illuminate\Support\Facades\Auth;
 use DB;
 use Hash;
-use Mail;
 
 class UserController extends Controller
 {
@@ -36,43 +37,41 @@ class UserController extends Controller
     {
 
          $this->validate($request, [
-        'uname' => 'required|unique:users|regex:/^[a-zA-Z]{1}[\w]{7,15}$/',
+        'uname' => 'required|unique:users_home',
         'phone' => 'required|regex:/^1{1}[3-9]{1}[\d]{9}$/',
         'smscode' => 'required',
-        'upass' => 'required|regex:/^[\w]{6,}$/',
+        'password' => 'required|regex:/^[\w]{6,}$/',
      ],[
         'uname.required'=>'用户名不能为空',
         'uname.unique'=>'用户名已存在',
         'uname.regex'=>'用户名格式错误',
         'phone.required'=>'手机号不能为空',
-        'phone.regex'=>'手机号格式不正确',
+        'uphone.regex'=>'手机号格式不正确',
         'smscode.required' => '验证码不能为空',
-        'upass.required'=>'确认密码不能为空',
-        'upass.regex'=>'密码不能少于6位',
+        'password.required'=>'确认密码不能为空',
+        'password.regex'=>'密码不能少于6位',
         ]);
 
-        // if(session('rand_phone_code') != $request->phone){
-        //    return back()->with('error','验证码错误');
+        if(session('rand_phone_code') != $request->smscode){
+           echo '<script>alert("验证码错误");location.href="/homes/register";</script>';
 
-        // }
+        }
         // 开启事务   DB::beginTransaction();
         // 提交事务   DB::commit()
-        // 回滚事务   DB::rollBack()
-        
-        DB::beginTransaction();
-
-        $users = new Users;
-        $users->uname = $request->input('uname','');
-        $users->phone = $request->input('phone','');
-        $users->upass = Hash::make($request->input('upass',''));
-        dump($users);
-        $res = $users->save();     
+        // 回滚事务   DB::rollBack()      
+        $users_home = new users_home;
+        $users_home->uname = $request->input('uname','');
+        $users_home->phone = $request->input('phone','');
+        $users_home->password = Hash::make($request->input('password',''));
+        // dump($user_homes);
+        $res = $users_home->save();     
         if($res){
             DB::commit();
-            return redirect('homes/register')->with('success','注册成功');
+            echo '<script>alert("添加成功");location.href="/homes/register";</script>';
+            // return redirect('/homes/register')->with("<script>alert('添加成功')</script>");
         }else{
             DB::rollBack();
-            return redirect('home/register')->with('error','注册失败');
+            echo '<script>alert("添加失败");location.href="/homes/register";</script>';
         }
 
 
@@ -93,11 +92,32 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     //登录
-    public function store(Request $request)
+    public function store(HomeStoreRequest $request)
     {
-       
-    }
+        $name = $request->input('uname','');
+        $password = $request->input('password','');
+        // dump($name);
+        // dd($password);
+        $users_home = users_home::where('uname',$name)->first();
+    
+        if(!$users_home){
+          echo  '<script>alert("用户名错误");location.href="/homes/register";</script>';
+        }
+        $password = $users_home->password;
+        if(!Hash::check($password,$password)){
+        $request->flash();
+        // return back()->with('error','密码错误');
+        echo '<script>alert("密码错误");location.href="/homes/register";</script>';
+        }
+        session(['password' => $users_home->password,'uname' => $users_home->uname]);
+        return redirect('/home');
 
+        // if (Auth::attempt(['uname' => $uname, 'uphone' => $uphone, 'password' => $password ])) {
+        //  echo '<script>alert("登录成功");location.href="/home";</script>';
+        // }else{
+        // return '<script>alert("登录失败");location.href="/homes/register";</script>';
+        // }                          
+     }
     /**
      * Display the specified resource.
      *
@@ -152,9 +172,9 @@ class UserController extends Controller
 
         $url = "http://v.juhe.cn/sms/send";
         $params = array(
-        'key'   => 'e0990a12380e3628a1970cd535cec9dd', //您申请的APPKEY
+        'key'   => '91dddd7d274ef0c62aa553098870446a', //您申请的APPKEY
         'mobile'    => $phone, //接受短信的用户手机号码
-        'tpl_id'    => '144779', //您申请的短信模板ID，根据实际情况修改
+        'tpl_id'    => '146242', //您申请的短信模板ID，根据实际情况修改
         'tpl_value' =>'#code#='.$rand_phone_code //您设置的模板变量，根据实际情况修改
     );
 

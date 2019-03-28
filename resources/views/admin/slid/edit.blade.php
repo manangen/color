@@ -30,12 +30,6 @@
                     </div>
                     <!-- readonly -->
                 </div>
-                <div class="mws-form-row">
-                    <label class="mws-form-label">轮播图路径</label>
-                    <div class="mws-form-item">
-                        <input type="text" name="surl" value="{{ $slid->surl }}" class="small">
-                    </div>
-                </div>
            </div>
             <div class="mws-form-row">
                  <label class="mws-form-label">图片</label>
