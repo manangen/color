@@ -86,7 +86,6 @@
 			<ul class="nva-list">
 				<a href="/home"><li class="active">首页</li></a>
 			</ul>
-
 		</div>
 	</div>
 	<!-- 顶部轮播 -->
