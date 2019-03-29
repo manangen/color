@@ -122,23 +122,26 @@ Route::resource('admin/cates','Admin\CatesController');
 
 // 后台轮播图路由
 Route::resource('admin/slid','Admin\SlidController');
-//定义商品管理
+// 定义商品管理
 Route::resource('admin/goods','Admin\GoodsController');
 // 定义后台链接路由
 Route::resource('admin/link','Admin\LinkController');
-//公告路由
+// 公告路由
 Route::resource('admin/notice','Admin\NoticeController');
 });
-
-//前台登录
+// 前台公告遍历路由
+Route::resource('homes/notices','Home\NoticesController');
+// 前台商品遍历路由
+Route::resource('home/tiem','Home\TiemController');
+// 前台登录
 Route::post('homes/user/store','Home\UserController@store');
 
-//定义前台的路由
+// 定义前台的路由
 Route::resource('home','Home\IndexController');
 
 // 定义前台登录注册
 Route::get('homes/register','Home\UserController@create');
 
-//前台注册
+// 前台注册
 Route::post('homes/user/insert','Home\UserController@insert');
 Route::get('homes/user/sendMobileCode','Home\UserController@sendMobileCode');

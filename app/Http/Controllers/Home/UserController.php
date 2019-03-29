@@ -39,11 +39,14 @@ class UserController extends Controller
     {
 
          $this->validate($request, [
-        'uname' => 'required|unique:users_home',
+        'uname' => 'required|unique:users|regex:/^[a-zA-Z]{1}[\w]{7,15}$/',
         'phone' => 'required|regex:/^1{1}[3-9]{1}[\d]{9}$/',
         'smscode' => 'required',
         'password' => 'required|regex:/^[\w]{6,}$/',
      ],[
+        'uname.required'=>'用户名不能为空',
+        'uname.unique'=>'用户名已存在',
+        'uname.regex'=>'用户名格式错误',
         'uphone.regex'=>'手机号格式不正确',
         'smscode.required' => '验证码不能为空',
         'password.required'=>'确认密码不能为空',

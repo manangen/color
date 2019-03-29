@@ -50,7 +50,7 @@ class NoticesController extends Controller
          // dump($id);
          $notices = notices::find($id);
          // dump($notices);
-        $link = notices::all();   //遍历公告页面的公告列表
+          $link = notices::all();   //遍历公告页面的公告列表
          return view('home.notices.notice',['notices'=>$notices,'link'=>$link]);
     }
 
