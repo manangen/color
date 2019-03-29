@@ -61,11 +61,8 @@
                     			
                                    <div class="mws-form-row">
                                         <label class="mws-form-label">商品图片上传</label>
-                                        
-                                        <div class="mws-form-item" style="width:47%;">                           
-                                             <input type="file" class="small"  name="pic" >
-                                        </div>
-                                        
+                                        <div class="mws-form-item" style="width:50%">
+                                        <input type="file" class="small"  name="pic">
                                    </div>
                     			<div class="mws-form-row">
                     				<label class="mws-form-label">商品状态</label>

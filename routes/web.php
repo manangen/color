@@ -14,6 +14,91 @@
 Route::get('/', function () {
 	return view('welcome');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 // 定义后台登陆路由 
 Route::get('admin_login','Admin\LoginController@admin_login');
@@ -25,6 +110,10 @@ Route::get('admin/login_out','Admin\LoginController@login_out');
 // 后台登陆
 Route::group(['middleware'=> ['admin_login']],function(){
 
+//定义后台首页
+Route::get('admin/index','Admin\IndexController@index');
+Route::get('admin','Admin\IndexController@index');
+
 // 定义后台用户的路由
 Route::resource('admin/users','Admin\UsersController');
 
@@ -33,21 +122,16 @@ Route::resource('admin/cates','Admin\CatesController');
 
 // 后台轮播图路由
 Route::resource('admin/slid','Admin\SlidController');
-
-// 定义后台首页的路由
-Route::get('admin','Admin\IndexController@index');
-
+//定义商品管理
+Route::resource('admin/goods','Admin\GoodsController');
 // 定义后台链接路由
 Route::resource('admin/link','Admin\LinkController');
-
-
-// 后台公告路由
+//公告路由
 Route::resource('admin/notice','Admin\NoticeController');
-
-// 后台商品管理路由
-Route::resource('admin/goods','Admin\GoodsController');
-
 });
+
+//前台登录
+Route::post('homes/user/store','Home\UserController@store');
 
 //定义前台的路由
 Route::resource('home','Home\IndexController');
@@ -58,9 +142,3 @@ Route::get('homes/register','Home\UserController@create');
 //前台注册
 Route::post('homes/user/insert','Home\UserController@insert');
 Route::get('homes/user/sendMobileCode','Home\UserController@sendMobileCode');
-
-//前台登录
-Route::post('homes/user/store','Home\UserController@store');
-
-// 前台购物车
-Route::resource('home/shop/index','Home\shopController');

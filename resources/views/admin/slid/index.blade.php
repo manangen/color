@@ -8,6 +8,7 @@
 				</div>
 				<div class="mws-panel-body no-padding">
 				<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
+
 					 <div style="text-align:center;">
 					<table class="mws-datatable mws-table dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
 				<thead>
@@ -28,7 +29,8 @@
 					<td>{{$v->id}}</td>
 					<td>{{$v->sname}}</td>
 					<td >
-					<img style="width：100px;height:100px;" src="{{$v->spic}}">
+					<img src="/admin_public/slid{{ $v->spic }}" width="50px"></td>
+
 					</td>
 					<td>{{$v->status}}</td>
 					<td>{{$v->description}}</td>
@@ -37,7 +39,6 @@
 						{{csrf_field()}}
 						{{method_field('DELETE')}}
 						<input type="submit" value="删除" class="btn btn-danger">
-						</form>						
 					</td>
 				</tr>
 				@endforeach

@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Cates;
 use App\Models\Link;
+use App\Models\Cates;
 use DB;
+use App\Models\Goods; 
 class IndexController extends Controller
 {
     public static function getPidCates($pid = 0)
@@ -29,10 +30,15 @@ class IndexController extends Controller
      */
     public function index()
     {
-        // 友情链接遍历
-        $link = DB::select('select * from link');
-        //加载模板
-        return view('home/index/index',['cates_data'=> self::getPidCates(),'link'=>$link]);
+      
+         
+            
+                    //公告遍历
+        $notices = DB::select('select * from notices');
+            // dump($notices);
+              $link = DB::select('select * from link');
+            
+        return view('home/index/index',['cates_data'=> self::getPidCates(),'notices'=>$notices,'link'=>$link] );
            
     }
 
@@ -54,7 +60,7 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -65,7 +71,11 @@ class IndexController extends Controller
      */
     public function show($id)
     {
-        //
+
+         $cates = Goods::where('typeid','=',$id)->get();
+          // dump($cates);
+
+             
     }
 
     /**
@@ -76,7 +86,7 @@ class IndexController extends Controller
      */
     public function edit($id)
     {
-        //
+          
     }
 
     /**
@@ -88,7 +98,7 @@ class IndexController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          
     }
 
     /**

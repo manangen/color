@@ -45,6 +45,17 @@ class SlidController extends Controller
      */
     public function store(Request $request)
     {
+         $this->validate($request, [
+            'sname' => 'required',
+            // 'price' => 'required|regex:/^[0-9]*$/',
+            'description' => 'required'
+           ],
+           [
+            'sname.required' => '轮播图名称为空',
+            // 'pic.required' => '轮播图片未上传',
+            'description.required' => '没有描述',
+
+           ]);
          /*
             开启事务   DB::beginTransaction();
             提交事务   DB::commit()
@@ -59,19 +70,22 @@ class SlidController extends Controller
         $slid->description=$request->input('description','');
         $spic = $request->file('spic');
         // 图片保存路径
-        $u = '/uploads'.'/';
-        //设置文件后缀名
-        $enev = strtolower($spic->getClientOriginalExtension());
+        $u = '/admin_public/slid';
 
         //设置文件名称
         $thore = date('Y-m-d,H:i:s').mt_rand(1000,9999); 
+
+        $u = '/uploads'.'/';
+        //设置文件后缀名
+        $enev = strtolower($spic->getClientOriginalExtension());
 
         //拼接文件路径
         $filename = '$enev.'.'.$thore';
       
         // 图片路径放入数据库
-       $filename= $request->file('spic')->store('/');
-       $slid->spic = $u.$filename;
+       $filename= $request->file('spic')->store('slid');
+       $slid->spic = $u.$filename;  
+
         // dd($slid->spic);
        // 执行添加 
         $res = $slid->save();
@@ -117,20 +131,20 @@ class SlidController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //   DB::beginTransaction();
-        //直接连接数据库
-        $slid = Slid::find($id);
-        $slid->sname = $request->input('sname','');
-        $slid->surl = $request->input('surl','');
-        $slid->description = $request->input('description','');
-        $res = $slid->save();
-        if($res){
-            DB::commit();
-            return redirect('admin/slid')->with('success','修改成功');
-        }else{
-             DB::rollBack();
-            return back()->with('error','修改失败');
-        }
+        // //   DB::beginTransaction();
+        // //直接连接数据库
+        // $slid = Slid::find($id);
+        // $slid->sname = $request->input('sname','');
+        // $slid->surl = $request->input('surl','');
+        // $slid->description = $request->input('description','');
+        // $res = $slid->save();
+        // if($res){
+        //     DB::commit();
+        //     return redirect('admin/slid')->with('success','修改成功');
+        // }else{
+        //      DB::rollBack();
+        //     return back()->with('error','修改失败');
+        // }
     }
 
     /**
